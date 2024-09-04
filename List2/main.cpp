@@ -121,8 +121,29 @@ public:
 		}
 		    
 	};
+	class iterator : public ConstIterator
+	{
+	public:
+		iterator(Element*Temp = nullptr):ConstIterator(Temp){}
+		~iterator() {}
+		int& operator*()
+		{
+			return Temp->Data;
+		}
+		
+	};
+	class ReversIterator :public ConstReversIterator
+	{
+	public:
+		ReversIterator(Element* Temp = nullptr):ConstReversIterator(Temp) {}
+		~ReversIterator(){}
+		int& operator*()
+		{
+			return Temp->Data;
+		}
+	};
 
-
+	
 	ConstIterator begin()const
 	{
 		return Head;
@@ -131,11 +152,28 @@ public:
 	{
 		return nullptr;
 	}
+	iterator begin()
+	{
+		return Head;
+	}
+	iterator end()
+	{
+		return nullptr;
+	}
+
 	ConstReversIterator rbegid()
 	{
 		return Tail;
 	}
 	ConstReversIterator rend()
+	{
+		return nullptr;
+	}
+	ReversIterator rbegid() const
+	{
+		return Tail;
+	}
+	ReversIterator rend()const
 	{
 		return nullptr;
 	}
@@ -321,6 +359,13 @@ List operator+(const List& left, const List& right)
 	}
 	return buffer;
 }
+void Grow(List& list)
+{
+	for (List::iterator it = list.begin(); it != list.end(); ++it)
+	{
+		*it *= 10;
+	}
+}
 
 //#define BASE_CHECK
 
@@ -366,5 +411,6 @@ int main()
 	//list3.revers_print();
 	for (int i : list1)cout << i << tab; cout << endl;
 	for (int i : list2)cout << i << tab; cout << endl;
+	Grow(list3);
 	for (int i : list3)cout << i << tab; cout << endl;
 }
