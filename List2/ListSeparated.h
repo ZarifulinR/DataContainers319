@@ -88,8 +88,10 @@ public:
 		~ReverseIterator() {}
 
 		T& operator*();
+		
 	};
-
+	
+	
 
 	ConstIterator begin()const;
 	ConstIterator end()const;
@@ -124,3 +126,6 @@ public:
 	void print()const;
 	void reverse_print()const;
 };
+
+
+

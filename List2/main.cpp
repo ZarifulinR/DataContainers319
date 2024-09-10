@@ -4,6 +4,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 #include"ListSeparated.cpp"
+#include <deque>
 #define tab "\t"
 #define delimiter "\n-------------------------------------------------\n"
 ///////////////////////////////////////////////////////////////////
@@ -50,6 +51,9 @@ void main()
 	cout << endl;
 #endif // ITERATORS_CHECK
 
+#ifdef LIS2
+
+
 	List<int> list1 = { 3, 5, 8, 13, 21 };
 	List<int> list2 = { 34, 55, 89 };
 	List<int> list3 = list1 + list2;
@@ -61,9 +65,31 @@ void main()
 	Grow(list3);
 	for (int i : list3)cout << i << tab; cout << endl;
 	List<double> d_list = { 22.2,332.55,4.5,66.5 };
-	for(double i : d_list)cout << i << tab; cout << endl;
+	for (double i : d_list)cout << i << tab; cout << endl;
 	List<std::string>s_list = { "Hello","World","" };
-	for(std::string i : s_list)cout << i << tab; cout << endl;
-}
+	for (std::string i : s_list)cout << i << tab; cout << endl;
+#endif  LIS2
+	int size = 10;
+	deque<int>qeuue;
+	
 
-;
+	for(int i=0; i<size;i++)
+	{
+		qeuue.push_front(rand() % 100);
+				
+	}
+	
+	for (int i : qeuue)cout << i << tab; cout << endl;
+	cout << qeuue.size();  cout <<endl;
+	qeuue.push_back(14);
+	for (int i : qeuue)cout << i << tab; cout << endl;
+	qeuue.pop_front();
+	for (int i : qeuue)cout << i << tab; cout << endl;
+	qeuue.push_front(222);
+	for (int i : qeuue)cout << i << tab; cout << endl;
+	qeuue.pop_back();
+	for (int i : qeuue)cout << i << tab; cout << endl;
+	qeuue.clear();
+	for (int i : qeuue)cout << i << tab; cout << endl;
+
+};
