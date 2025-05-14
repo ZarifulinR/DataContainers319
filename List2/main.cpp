@@ -7,6 +7,7 @@ constexpr char tab = '\t';;
 #define delimiter "\n-------------------------"
 class List
 {
+	////Hello
 	class Element
 	{
 		int Data;
@@ -82,11 +83,11 @@ public:
 			Temp = Temp->pPrev;
 			return old;
 		}
-		
+
 	};
 	class ConstReversIterator:public ConstBaseItertor
 	{
-		
+
 	public:
 		ConstReversIterator(Element* Temp = nullptr) : ConstBaseItertor(Temp)
 		{
@@ -119,7 +120,7 @@ public:
 			Temp = Temp->pNext;
 			return old;
 		}
-		    
+
 	};
 	class iterator : public ConstIterator
 	{
@@ -130,7 +131,7 @@ public:
 		{
 			return Temp->Data;
 		}
-		
+
 	};
 	class ReversIterator :public ConstReversIterator
 	{
@@ -143,7 +144,7 @@ public:
 		}
 	};
 
-	
+
 	ConstIterator begin()const
 	{
 		return Head;
@@ -177,7 +178,7 @@ public:
 	{
 		return nullptr;
 	}
-	
+
 
 	//Constractors
 	List()
@@ -230,7 +231,7 @@ public:
 	void push_back(int data)
 	{
 		Element* New = new Element(data);
-		
+
 			New->pPrev = Tail;
 			if (Head == nullptr && Tail==nullptr)
 				Head=Tail = New;
@@ -239,7 +240,7 @@ public:
 				New->pPrev = Tail;
 				Tail = Tail->pNext = New;
 			}
-		
+
 		size++;
 	}
 	void pop_front()
